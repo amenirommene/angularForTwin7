@@ -1,0 +1,24 @@
+<input type="text" [(ngModel)]="titre">
+<div class="container">
+  <div class="row">
+
+    <div *ngFor ="let x of categories"  class="col-md-4" style="margin-bottom: 20px;">
+      <ng-container *ngIf="!titre || x.title.toLowerCase().includes(titre.toLowerCase())">
+      <img (click)="clickImage(x.description)" [src]="x.image" [alt]="x.title" class="img-fluid h-50 w-75">
+      <h3 appHeilight>{{x.title | uppercase}}</h3>
+      <a routerLink="getdetails">details</a>
+      <button [routerLink]="['/details',x.id]" class="btn btn-primary" *ngIf="x.available">Voir produits</button>
+      <button [routerLink]="['/details']" [queryParams]="{id:x.id}" class="btn btn-primary" *ngIf="x.available">Voir produits</button>
+      <p [hidden]="x.available"> Catégorie non disponible </p>
+   <!---   <button class="btn btn-primary" [hidden]="!x.available">Voir produits</button> -->
+   </ng-container>
+  </div>
+  </div>
+</div>
+<router-outlet></router-outlet>
+{{ nom }} <!---interpolation-->
+<button (click)="clickMe('a')">test</button> <!---event-binding-->
+<input value="nom"><!----->
+<input [value]="nom"><!--property-binding-->
+<br>
+<input [(ngModel)]="nom"> <!---two-way-databinding-->
