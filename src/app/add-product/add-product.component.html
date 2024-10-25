@@ -1,0 +1,37 @@
+<form #f="ngForm">
+name : <input required minlength="5" pattern="[a-zA-Z]*" name="n" [(ngModel)]="p.name" #name="ngModel"> <br>
+<div *ngIf="(name.dirty || name.touched) && name.invalid">
+ <div *ngIf="name.errors['required']">
+  Le name est obligatoire
+ </div>
+ <div *ngIf="name.errors['minlength']">
+  Minimum {{ name.errors['minlength']['requiredLength']}} caractères
+  alors que vous avez saisi {{ name.errors['minlength']['actualLength']}}
+ </div>
+ <div *ngIf="name.errors['pattern']">
+  Il faut saisir que des lettres
+ </div>
+</div>
+description : <textarea required  name="description" [(ngModel)]="p.description" #desc="ngModel"></textarea>
+<div *ngIf="desc.invalid">
+  champ obligatoire
+</div>
+price : <input name="price" pattern="^\d+(\.\d+)?$" [(ngModel)]="p.price" #price="ngModel">
+<div *ngIf="price.invalid">
+  Il faut écrire que des chiffres et des points
+</div>
+<br>
+categoryId: <input type="number" name="categoryId" required [(ngModel)]="p.categoryId" #cat="ngModel">
+<div *ngIf="cat.invalid">
+  obligatoire
+</div> <br>
+promotion : <input name="promotion" pattern="^(0|[1-9][0-9]?)$" [(ngModel)]="p.promotion" #promotion="ngModel">
+<div *ngIf="promotion.invalid">
+  valeur <=100
+</div>
+<!---<button [disabled]="name.invalid || desc.invalid">Save</button>--->
+<button (click)="add(f.value)" [disabled]="f.invalid">Save</button>
+</form>
+valid : {{name.valid}} ** invalid : {{name.invalid}} <br>
+touched : {{name.touched}} ** untouched : {{name.untouched}} <br>
+dirty : {{name.dirty}} ** pristine : {{name.pristine}} <br>
