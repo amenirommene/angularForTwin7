@@ -31,7 +31,9 @@ export class ListCategoriesComponent {
     console.log("test event binding " + ch);
   }
 
-  clickImage(description:string){
-    alert (description);
+  f(msg:any){
+    console.log("btn clicked "+ msg.code + " "+ msg.id);
   }
+
+
 }

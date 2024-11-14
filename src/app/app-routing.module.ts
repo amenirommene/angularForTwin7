@@ -1,3 +1,4 @@
+import { AddProductReactiveComponent } from './add-product-reactive/add-product-reactive.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { DetailsCategoryComponent } from './details-category/details-category.component';
 import { ProductsQPCategoryComponent } from './products-qpcategory/products-qpcategory.component';
@@ -21,6 +22,7 @@ const routes: Routes = [
   {path:"", redirectTo:"home", pathMatch:"full"},
   {path:"test", component:TestComponent},
   {path:"add", component:AddProductComponent},
+  {path:"addp", component:AddProductReactiveComponent},
   //pathParam
   {path:"details/:id", component:ProductsCategoryComponent},
   //QueryParam

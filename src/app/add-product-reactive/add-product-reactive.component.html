@@ -1,0 +1,23 @@
+<form [formGroup]="myForm" (ngSubmit)="save()" >
+  name: <input formControlName="name" > <br>
+<div *ngIf="name.errors && name.touched"> <!----*ngIf="myForm.get('name').invalid--->
+  <div *ngIf="name.errors['required']">Name obligatoire</div>
+  <div *ngIf="name.errors['minlength']">Minimum 5 caractères</div>
+  <div *ngIf="name.errors['pattern']">Que des caractères</div>
+</div>
+  description : <textarea formControlName="description"></textarea> <br>
+  price <input type="number" formControlName="price">
+  <div *ngIf="price.errors">
+    <div *ngIf="price.errors['required']">Name obligatoire</div>
+    <div *ngIf="price.errors['pattern']">Que des chiffres et des points</div>
+  </div>
+  promotion <input type="number" formControlName="promotion">
+  <div *ngIf="promotion.invalid">
+   la valeur doit être <= 100
+  </div>
+  category Id <input type="number" formControlName="categoryId">
+  <div *ngIf="categoryId.invalid">
+   la catégory est obligatoire
+  </div>
+  <input type="submit"   [disabled]="myForm.invalid" value="save">
+</form>

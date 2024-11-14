@@ -1,0 +1,12 @@
+
+
+  <img (click)="clickImage(description)" [src]="image" [alt]="title" class="img-fluid h-50 w-75">
+  <h3 appHeilight>{{title | uppercase}}</h3>
+  <a routerLink="getdetails">details</a>
+ <button [routerLink]="['/details',id]" (click)="notif()" class="btn btn-primary" *ngIf="available">Voir produits</button>
+  <button [routerLink]="['/details']" [queryParams]="{id:id}" class="btn btn-primary" *ngIf="available">Voir produits</button>
+  <p [hidden]="available"> Catégorie non disponible </p>
+<!---   <button class="btn btn-primary" [hidden]="!available">Voir produits</button> -->
+
+
+

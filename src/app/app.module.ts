@@ -9,7 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { ListCategoriesComponent } from './list-categories/list-categories.component';
 import { TestComponent } from './test/test.component';
 import { Test2Component } from './test2/test2.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ContainsPipe } from './contains.pipe';
 import { HeilightDirective } from './heilight.directive';
 import { NotFoundComponent } from './not-found/not-found.component';
@@ -17,6 +17,8 @@ import { ProductsCategoryComponent } from './products-category/products-category
 import { ProductsQPCategoryComponent } from './products-qpcategory/products-qpcategory.component';
 import { DetailsCategoryComponent } from './details-category/details-category.component';
 import { AddProductComponent } from './add-product/add-product.component';
+import { AddProductReactiveComponent } from './add-product-reactive/add-product-reactive.component';
+import { CardComponent } from './card/card.component';
 
 @NgModule({
   declarations: [
@@ -34,12 +36,15 @@ import { AddProductComponent } from './add-product/add-product.component';
     ProductsCategoryComponent,
     ProductsQPCategoryComponent,
     DetailsCategoryComponent,
-    AddProductComponent
+    AddProductComponent,
+    AddProductReactiveComponent,
+    CardComponent
   ],
   imports: [ //la liste des modules dont a besoin
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule, //template driven form
+    ReactiveFormsModule//reactive Form
   ],
   providers: [], //services
   bootstrap: [AppComponent]
