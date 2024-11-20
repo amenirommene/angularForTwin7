@@ -1,5 +1,7 @@
+import { CardComponent } from './../card/card.component';
+import { shortList } from './../models/shortlist';
 import { Category } from './../models/category';
-import { Component } from '@angular/core';
+import { Component, QueryList, ViewChildren } from '@angular/core';
 
 @Component({
   selector: 'app-list-categories',
@@ -34,6 +36,35 @@ export class ListCategoriesComponent {
   f(msg:any){
     console.log("btn clicked "+ msg.code + " "+ msg.id);
   }
+  shortList : shortList[]=[];
+  addToShortList(x:Category){
+  let exist : boolean = false;
+  let elt:shortList={'id':1,'idElement':x.id, 'idUser':1, 'typeElement':'category'};
+
+  for (let a of this.shortList){
+    if (a.idUser==1 && a.idElement == x.id && a.typeElement == 'category'){
+        exist = true;
+        alert("exist");
+    } }
+   if (!exist){
+      this.shortList.push(elt);
+      console.log(this.shortList);
+    }
+    }
+
+    @ViewChildren(CardComponent) children: QueryList<CardComponent>;
+
+    ngAfterViewInit() {
+      this.children.forEach(child => {
+        console.log('Child component:', child);
+        console.log(child.title);
+      });
 
 
+  }
 }
+
+
+
+
+

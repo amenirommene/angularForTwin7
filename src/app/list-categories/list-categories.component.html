@@ -4,7 +4,7 @@
 
 <div *ngFor ="let x of categories" class="col-md-4" style="margin-bottom: 20px;">
   <ng-container *ngIf="!titre || x.title.toLowerCase().includes(titre.toLowerCase())">
-  <app-card (notified)="f($event)" [id]="x.id" [image]="x.image" [title]="x.title" [available]="x.available" [description]="x.description"></app-card>
+  <app-card (add)="addToShortList(x)" (notified)="f($event)" [id]="x.id" [image]="x.image" [title]="x.title" [available]="x.available" [description]="x.description"></app-card>
 </ng-container>
 </div>
 </div>
