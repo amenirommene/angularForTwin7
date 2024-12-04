@@ -16,7 +16,7 @@ const routes: Routes = [
 
   {path:"home", component:HomeComponent, children:
   [
-    {path:"getdetails", component:DetailsCategoryComponent}
+    {path:"getdetails/:id", component:DetailsCategoryComponent}
   ]},
 
   {path:"", redirectTo:"home", pathMatch:"full"},

@@ -1,6 +1,7 @@
 import { Product } from './../models/product';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { CategoryService } from '../core/services/category.service';
 
 @Component({
   selector: 'app-add-product-reactive',
@@ -10,7 +11,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 export class AddProductReactiveComponent implements OnInit {
 myForm: FormGroup;
 loginForm: FormGroup;
-constructor(private fb:FormBuilder){};
+constructor(private fb:FormBuilder, private cs:CategoryService){};
 ngOnInit(){
   this.myForm= new FormGroup({
     name: new FormControl("",[Validators.required, Validators.minLength(5), Validators.pattern("[a-zA-Z]*")]),
@@ -54,5 +55,7 @@ save(){
   this.p.name=this.myForm.value.name;
   console.log(this.p);
   console.log(this.myForm.value);
+  this.cs.addProduct(this.myForm.value).subscribe(()=>
+  {alert ("aded with success"); this.myForm.reset()});
 }
 }

@@ -1,34 +1,24 @@
 import { CardComponent } from './../card/card.component';
 import { shortList } from './../models/shortlist';
 import { Category } from './../models/category';
-import { Component, QueryList, ViewChildren } from '@angular/core';
+import { Component, QueryList, ViewChildren, OnInit, AfterViewInit } from '@angular/core';
+import { CategoryService } from '../core/services/category.service';
 
 @Component({
   selector: 'app-list-categories',
   templateUrl: './list-categories.component.html',
   styleUrls: ['./list-categories.component.css']
 })
-export class ListCategoriesComponent {
+export class ListCategoriesComponent implements OnInit, AfterViewInit {
   nom : string = "TWIN";
   titre : string = "";
-  categories : Category[] = [
-    {"id":1,"title":"Grand électroménager",
-    "image":"assets/images/categorie_electromenager.jpg", "description":"description1",
-    "available":true},
-    {"id":2,"title":"Petit électroménager",
-    "image":"assets/images/categorie_petit_electromenager.jpg", "description":"description2",
-    "available":true},
-    {"id":3,"title":"Produits informatiques",
-    "image":"assets/images/categorie_produits_informatiques.jpg", "description":"description3",
-    "available":true},
-    {"id":4,"title":"Smart Phones", "image":"assets/images/categorie_smartPhone.jpg",
-    "description":"description4", "available":true},
-    {"id":5,"title":"TV, images et son",
-    "image":"assets/images/categorie_tv_image_son.jpg", "description":"description5",
-    "available":true},
-    {"id":6,"title":"Produits voiture", "image":"assets/images/produits_nettoyages.jpg",
-    "description":"description6","available":false},
-    ];
+  categories : Category[] = [];
+  //injecter le service CategoryService sous le nom de "cs"
+  constructor(private cs:CategoryService){}
+  ngOnInit(){
+   //this.categories=this.cs.getListCategories();
+   this.cs.getListCategoriesFromBackend().subscribe((res)=>this.categories=res);
+  }
   clickMe(ch:string){
     console.log("test event binding " + ch);
   }

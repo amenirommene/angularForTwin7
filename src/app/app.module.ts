@@ -19,7 +19,7 @@ import { DetailsCategoryComponent } from './details-category/details-category.co
 import { AddProductComponent } from './add-product/add-product.component';
 import { AddProductReactiveComponent } from './add-product-reactive/add-product-reactive.component';
 import { CardComponent } from './card/card.component';
-
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     //liste des composants , pipes et directives crées
@@ -44,7 +44,8 @@ import { CardComponent } from './card/card.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule, //template driven form
-    ReactiveFormsModule//reactive Form
+    ReactiveFormsModule,//reactive Form
+    HttpClientModule
   ],
   providers: [], //services
   bootstrap: [AppComponent]
