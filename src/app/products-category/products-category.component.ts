@@ -25,6 +25,13 @@ export class ProductsCategoryComponent implements OnInit {
    this.cs.getProductsByCategory(this.id).subscribe(res=>this.list=res)
   })};
 
+  deleteP(id:number){
+    this.cs.deleteProduct(id).subscribe(
+      ()=>
+      this.cs.getProductsByCategory(this.id).subscribe(
+        res=>this.list=res));
+  }
+
 
 
 }

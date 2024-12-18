@@ -49,4 +49,15 @@ export class CategoryService {
   addProduct(product:Product): Observable<Product>{
     return this.http.post<Product>(this.apiUrlProduct,product);
   }
+  deleteProduct(id:number): Observable<Product>{
+    return this.http.delete<Product>(this.apiUrlProduct+"/"+id);
+  }
+
+  getProductById(id:number):Observable<Product>{
+    return this.http.get<Product>(this.apiUrlProduct+"/"+id);
+  }
+
+  updateProduct(product:Product): Observable<Product>{
+    return this.http.put<Product>(this.apiUrlProduct+"/"+product.id,product);
+  }
 }

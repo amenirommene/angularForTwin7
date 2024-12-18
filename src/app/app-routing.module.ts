@@ -22,6 +22,7 @@ const routes: Routes = [
   {path:"", redirectTo:"home", pathMatch:"full"},
   {path:"test", component:TestComponent},
   {path:"add", component:AddProductComponent},
+  {path:"update/:id", component:AddProductComponent},
   {path:"addp", component:AddProductReactiveComponent},
   //pathParam
   {path:"details/:id", component:ProductsCategoryComponent},

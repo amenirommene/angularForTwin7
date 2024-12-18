@@ -45,33 +45,13 @@
   ],
   "products": [
     {
-      "id": 1,
-      "name": "Refrigérateur LGG Inox",
-      "image": "assets/images/refrigerateur-lg.jpg",
-      "categoryId": 1,
-      "description": "",
-      "price": 2800,
-      "brand": "LG",
-      "promotion": 0
-    },
-    {
       "id": 2,
-      "name": "Refrigérateur Samsung Blanc",
+      "name": "REfrigerateur",
       "image": "assets/images/refrigerateur_samsung.jpeg",
       "categoryId": 1,
-      "description": "",
+      "description": "hhhhhh",
       "price": 2400,
       "brand": "Samsung",
-      "promotion": 0
-    },
-    {
-      "id": 3,
-      "name": "Lave vaisselle Beko",
-      "image": "assets/images/lave_vaisselle.png",
-      "categoryId": 1,
-      "description": "",
-      "price": 1875,
-      "brand": "BEKO",
       "promotion": 0
     },
     {
